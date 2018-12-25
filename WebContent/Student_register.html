@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+function checkForm(form)
+{
+  if(form.name.value == "") 
+  {
+    alert("Error: Name cannot be blank!");
+    form.name.focus();
+    return false;
+  }
+  re =/^[a-z]+$/i;
+  if(!re.test(form.name.value)) 
+  {
+    alert("Error:Name must contain only letters!");
+    form.name.focus();
+    return false;
+  }
+  
+  if(form.rno.value=="")
+  {
+	  alert("Error: Registration number cannot be blank!");
+	    form.rno.focus();
+	    return false;
+  }
+  
+  if(form.rno.value!="")
+  {
+	 
+	  if(form.rno.value.length !=10) 
+	  {
+	      alert("Error: Enter a valid 10 digit Registration number!");
+	      form.rno.focus();
+	      return false;
+	  }
+	  
+  }
+  
+  if(form.phno.value=="")
+  {
+	    alert("Error: Phone number cannot be blank!");
+	    form.phno.focus();
+	    return false;
+  }
+  
+  if(form.phno.value!="")
+  {
+	 
+	  if(form.phno.value.length !=10) 
+	  {
+	      alert("Error: Enter a valid 10 digit Mobile number!");
+	      form.phno.focus();
+	      return false;
+	  }
+	  
+  }
+  
+  if(form.eid.value=="")
+  {
+	  alert("Error: Email id cannot be blank!");
+	    form.eid.focus();
+	    return false;
+  }
+  if(form.eid.value=="")
+  {
+	  alert("Error: Password cannot be blank!");
+	    form.eid.focus();
+	    return false;
+  }
+
+  if(form.pass1.value != "" && form.pass1.value == form.pass2.value) 
+  {
+    if(form.pass1.value.length < 6) 
+    {
+      alert("Error: Password must contain at least six characters!");
+      form.pass1.focus();
+      return false;
+    }
+    re = /[0-9]/;
+    if(!re.test(form.pass1.value)) 
+    {
+      alert("Error: Password must contain at least one number (0-9)!");
+      form.pass1.focus();
+      return false;
+    }
+    re = /[a-z]/;
+    if(!re.test(form.pass1.value)) 
+    {
+      alert("Error: Password must contain at least one lowercase letter (a-z)!");
+      form.pass1.focus();
+      return false;
+    }
+    re = /[A-Z]/;
+    if(!re.test(form.pass1.value)) 
+    {
+      alert("Error: Password must contain at least one uppercase letter (A-Z)!");
+      form.pass1.focus();
+      return false;
+    }
+  } 
+  else 
+  {
+    alert("Error: Password field don't match!");
+    form.pass2.focus();
+    return false;
+  }
+
+}
+
+
+
+</script>
+<head>
+<title>VIRTUAL CLASSROOM</title>
+<link rel="stylesheet" type="text/css" href="style1.css" >
+</head>
+<body>
+<center>
+<font color="blue" size="3">
+<h1><b>Welcome to Virtual Classroom</b></h1>
+<p><marquee behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()">Welcome to Virtual Classroom </marquee></p>
+<div class="vclass-form">
+<form action="regis" onsubmit="return checkForm(this);" id="registration" method="post">
+<table>
+<h2><b> REGISTRATION FORM</b></h2>
+
+<tr>
+<td>Enter Name</td>
+<td><input type="text" name="name" id="button" placeholder="Enter your Name" title="Name must not be blank and contain only letters." ></td>
+</tr><br>
+
+<tr>
+<td>Enter Registration No.</td>
+<td><input type="number" name="rno" id="button" placeholder="Enter your Registration No." title="Registration No. must be of 10 digits" ></td>
+</tr><br>
+
+
+<tr>
+<td>Enter Phone number</td>
+<td><input type="number" name="phno" id="button" placeholder="Enter your phone number" title="Mobile number must be of 10 digits" ></td>
+</tr><br>
+
+<tr>
+<td>Enter Email-id</td>
+<td><input type="email" name="eid" id="button" placeholder="Enter your email-id" title="Email id must be a valid one"  ></td>
+</tr><br>
+
+<tr>
+<td>Enter Password</td>
+<td><input type="password" name="pass1" id="button" placeholder="Enter your password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers."  ></td>
+</tr><br>
+
+<tr>
+<td>Confirm Password</td>
+<td><input type="password" name="pass2" id="button" placeholder="Re-Enter your password" title="Please enter the same Password as above." ></td>
+</tr><br>
+
+</table>
+<br><br>
+<input type="submit" value="SIGNUP" id="butt">
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<input type="reset" value="RESET" id="butt">
+
+<br><br>
+
+<b>Already Have An Account?</b><br><br>
+
+</style>
+<a href="Student_login.html"><i>Click Here to Login</i></a>
+
+</b>
+</form>
+</div>
+</font>
+</center>
+</body>
+</html>

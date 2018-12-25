@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<script>
+	function Valid1()
+	{
+	     var a=document.faculty.uid.value;
+	     var b=document.faculty.pass.value;
+	     if(a==""||a==null)
+	     {
+	    	 alert("Please enter ur user-id");
+	         return false;
+	     }
+	     if(b==""||b==null)
+	     {
+	    	 alert("Please enter ur Password");
+	         return false;
+	     }
+	}
+	function change(x)
+	{
+		if(x==1)
+	    {
+		     location.href='Student_login.html';
+		}
+		else if(x==2)
+		{
+			location.href='Admin_login.html';		
+		}
+		return;
+	}
+	</script>
+	<head>
+		<title>Faculty Login_Page </title>
+		<link rel="stylesheet" type="text/css" href="style1.css" >
+	</head>
+	<body>
+		<center>
+			<font color="blue" size="3">
+			<h1><b>V-CLASSROOM</b></h1>
+			<p><marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">Welcome to Virtual Classroom </marquee></p>
+			<div class="v-form">
+			
+			<form action="fac_log" name="faculty" method="post" onsubmit="return Valid1();">
+			
+				<table>
+				<input type="radio" name="occ" value="faculty" checked>Faculty &nbsp&nbsp
+				<input type="radio" name="occ" value="student"  onclick="change(1)">Student &nbsp&nbsp
+				<input type="radio" name="occ" value="admin" onclick="change(2)">Admin<br><br>
+				<h2 align="center"><b>FACULTY_LOGIN</b></h2>
+				<tr><td>User-ID</td><td><input type="text" name="uid" id="button" placeholder="Enter your User-ID"></td></tr>
+				<br>
+				<tr><td>Password</td><td> <input type="password" name="pass" id="button" placeholder="Enter your Password"></td></tr>
+				</table>
+				<br><br>
+				
+				<input type="submit" value="LOGIN" id="butt">&nbsp
+				<input type="reset" value="RESET" id="butt">
+				
+			
+			</form>
+			</div>
+			</font>
+		</center>
+	</body>
+</html>
+
+
+
+
