@@ -44,7 +44,7 @@ public class StudentDAO
 	public static Student login(Student student)
 	{
 		String u_id=student.getUser_id();
-		System.out.println("uid="+u_id);
+		//System.out.println("uid="+u_id);
 		String pass=student.getPassword();
 		try 
 		{
@@ -63,7 +63,7 @@ public class StudentDAO
 			}
 			else
 			{
-				 System.out.println("Sorry, you are not a registered user! Please sign up first");
+				 //System.out.println("Sorry, you are not a registered user! Please sign up first");
 		         student.setValid(false);
 			}
 		}

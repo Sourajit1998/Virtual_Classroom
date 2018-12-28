@@ -10,7 +10,7 @@
 <body>
 	<%Student currentUser=(Student)session.getAttribute("currentSessionUser");%>
 	Welcome <%= currentUser.getName() %><br><br>
-	<a href="pro">Profile</a>
+	<a href="stud_pro">Profile</a>
 
 
 </body>
