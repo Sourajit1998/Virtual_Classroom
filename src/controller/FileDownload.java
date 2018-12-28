@@ -27,14 +27,11 @@ public class FileDownload extends HttpServlet
 		Faculty currentFaculty=(Faculty)session.getAttribute("currentFaculty");
 		String faculty_name=currentFaculty.getName();
 		String file_name=request.getParameter("fileName");
-		System.out.println("file name="+file_name);
-		//String download_path=UPLOAD_DIRECTORY+File.separator+faculty_name+file_name;
+		//System.out.println("file name="+file_name);
 		String download_path=UPLOAD_DIRECTORY+File.separator+faculty_name;
-		System.out.println("download path="+download_path);
+		//System.out.println("download path="+download_path);
 		File file = new File(download_path+File.separator+file_name);
-		//System.out.println("File="+file);
-		//OutputStream outStream=null;
-		//FileInputStream inputStream=null;
+	
 		if (file.exists()) 
 		{
 
@@ -42,7 +39,7 @@ public class FileDownload extends HttpServlet
 			response.setHeader("Content-Disposition","attachment; filename=\"" + file_name + "\"");   
 			  
 			FileInputStream fileInputStream = new FileInputStream(download_path +File.separator+ file_name);  
-			System.out.println("file input stream="+fileInputStream);
+			//System.out.println("file input stream="+fileInputStream);
 			            
 			int i;   
 			while ((i=fileInputStream.read()) != -1) 
@@ -54,7 +51,7 @@ public class FileDownload extends HttpServlet
 		}  
 		else
 		{
-			System.out.println("File doesnt exist");                        //design to be done later
+			out.println("<h3>File "+ file_name +" Is Not Present .....!</h3>");             //design to be done later
 		}
 			
 	}

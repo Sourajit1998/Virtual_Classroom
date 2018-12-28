@@ -35,7 +35,7 @@ public class FileUpload extends HttpServlet
 		try 
 		{
 			String upload_path=UPLOAD_DIRECTORY+File.separator +faculty_name;
-			System.out.print("Upload path="+upload_path);
+			//System.out.print("Upload path="+upload_path);
 			File fileUploadDir=new File(upload_path);
 			if(!fileUploadDir.exists())
 			{
@@ -44,17 +44,10 @@ public class FileUpload extends HttpServlet
 			String fileName = "";
 			UploadDetail details;
 	        List<UploadDetail> fileList = new ArrayList<UploadDetail>();
-	        /*
-	        for (Part part : request.getParts()) 
-	        {
-	        	   fileName = new File(part.getName()).getName();
-	        	   System.out.println(fileName);
-	        }
-	        */
-
+	    
 			ServletFileUpload sf=new ServletFileUpload(new DiskFileItemFactory());
 			List<FileItem> multifiles=sf.parseRequest(request);
-			for(FileItem item:multifiles)                       //go thru the request 2 scan multiple files
+			for(FileItem item:multifiles)                       //go thru the request 2 scan multiple files present in the request
 			{
 				if(!item.isFormField())
 				{
@@ -76,31 +69,16 @@ public class FileUpload extends HttpServlet
 					    fileList.add(details);
 				}
 			}
-			for(UploadDetail files:fileList)
-			{
-				System.out.print(files.getFileName()+" "+files.getFileType()+" "+files.getFileSize()+" "+files.getUploadStatus());
-			}
+		
 			request.setAttribute("uploadedFiles", fileList);
 			out.println("<html><body><font color='red' size='5'><center>");
 			out.println("<b>File uploaded successfully</b>");
 			out.println("</center></font></body></html>");
 			RequestDispatcher rd=request.getRequestDispatcher("Faculty_logged.jsp");
 			rd.include(request,response);
-			//////////////////////////////////////////////////////////////
-			//to be mentioned here success redirect
+		
 		}
-					   //String faculty_name=currentFaculty.getName();
-					   // File fileSaveDir=new File(UPLOAD_DIRECTORY + File.separator +faculty_name);
-				
-					 //   if (!fileSaveDir.exists()) 
-					  //  {
-				         //   fileSaveDir.mkdir();
-				       // }
-					//    item.write( new File(UPLOAD_DIRECTORY + File.separator +faculty_name+File.separator+name));
-					     
-			    // }
-		//	}
-		//}
+					  
 		catch(Exception ee)
 		{
 			ee.printStackTrace();
