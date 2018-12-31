@@ -27,7 +27,8 @@
                      <td align="center"><span id="user-id"><%=facultyList.get(i).getUser_id() %></span></td>
                      <td align="center"><span id="phno"><%=facultyList.get(i).getPhno() %></span></td>
                      <td align="center"><span id="email_id"><%=facultyList.get(i).getEid() %></span></td>
-                     <td align="right"><span id="remove"><a id="removalLink" class="hyperLink" href="remove?facultyName=<%=facultyList.get(i).getName()%>&user-id=<%=facultyList.get(i).getUser_id() %>">Remove</a></span></td>
+                     <td align="left"><span id="remove"><a id="removalLink" class="hyperLink" href="remove?facultyName=<%=facultyList.get(i).getName()%>&user-id=<%=facultyList.get(i).getUser_id() %>">Remove</a></span></td>
+                     <td align="right"><span id="edit"><a id="editLink" class="hyperLink" href="edit?facultyName=<%=facultyList.get(i).getName()%>&user-id=<%=facultyList.get(i).getUser_id() %>">Edit</a></span></td>
                  
                   </tr>
                   <% }

@@ -124,5 +124,34 @@ public class FacultyDAO
 		}
 		return facultyList;
 	}
+	public static Faculty edit(Faculty faculty)
+	{
+		String name=faculty.getName();
+		String user_id=faculty.getUser_id();
+		try
+		{
+			cn=ConnectionManager.getConnection();
+			ps=cn.prepareStatement("select * from Faculty where name=? and user_id=?");
+			ps.setString(1, name);
+			ps.setString(2, user_id);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next())
+			{
+				faculty.setValid(true);
+				faculty.setName(rs.getString(1));
+				faculty.setPhno(rs.getString(3));
+				faculty.setEid(rs.getString(4));
+			}
+			else
+			{
+				faculty.setValid(false);
+			}
+		}
+		catch(Exception ee)
+		{
+			ee.printStackTrace();
+		}
+		return faculty;
+	}
 
 }

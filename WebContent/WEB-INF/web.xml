@@ -99,8 +99,7 @@
     <servlet-name>ViewAllFaculties</servlet-name>
     <url-pattern>/display_faculty</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>RemoveFaculty</servlet-name>
     <servlet-class>controller.RemoveFaculty</servlet-class>
   </servlet>
@@ -108,5 +107,13 @@
     <servlet-name>RemoveFaculty</servlet-name>
     <url-pattern>/remove</url-pattern>
   </servlet-mapping>
- 
+  <servlet>
+    <servlet-name>EditFaculty</servlet-name>
+    <servlet-class>controller.EditFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditFaculty</servlet-name>
+    <url-pattern>/edit</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

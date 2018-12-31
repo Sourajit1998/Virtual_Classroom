@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import dao.FacultyDAO;
 import model.Faculty;
 
-
+//Admin views list of faculties
 public class ViewFaculty extends HttpServlet 
 {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
