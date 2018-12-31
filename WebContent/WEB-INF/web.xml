@@ -59,7 +59,6 @@
     <servlet-name>DisplayUploadedFiles</servlet-name>
     <url-pattern>/disp_files</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>FileDownload</servlet-name>
     <servlet-class>controller.FileDownload</servlet-class>
@@ -68,4 +67,46 @@
     <servlet-name>FileDownload</servlet-name>
     <url-pattern>/download</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>controller.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/adm_log</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminProfile</servlet-name>
+    <servlet-class>controller.AdminProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminProfile</servlet-name>
+    <url-pattern>/adm_pro</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddFaculty</servlet-name>
+    <servlet-class>controller.AddFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFaculty</servlet-name>
+    <url-pattern>/add_faculty</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewAllFaculties</servlet-name>
+    <servlet-class>controller.ViewFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAllFaculties</servlet-name>
+    <url-pattern>/display_faculty</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>RemoveFaculty</servlet-name>
+    <servlet-class>controller.RemoveFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFaculty</servlet-name>
+    <url-pattern>/remove</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>
