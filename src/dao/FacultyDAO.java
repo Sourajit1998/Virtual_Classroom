@@ -141,6 +141,7 @@ public class FacultyDAO
 				faculty.setName(rs.getString(1));
 				faculty.setPhno(rs.getString(3));
 				faculty.setEid(rs.getString(4));
+				faculty.setPassword(rs.getString(5));
 			}
 			else
 			{
