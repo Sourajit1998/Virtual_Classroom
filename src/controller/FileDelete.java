@@ -27,8 +27,9 @@ public class FileDelete extends HttpServlet
 		Faculty currentFaculty=(Faculty)session.getAttribute("currentFaculty");
 		String faculty_name=currentFaculty.getName();
 		String file_name=request.getParameter("fileName");
+		//System.out.println("file name="+file_name);
 		String delete_path=UPLOAD_DIRECTORY+File.separator+faculty_name;
-		
+		//System.out.println("download path="+download_path);
 		try
 		{
 			File file = new File(delete_path+File.separator+file_name);

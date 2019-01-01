@@ -131,4 +131,29 @@
     <servlet-name>UpdatedFaculty</servlet-name>
     <url-pattern>/update_faculty</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StudentViewsFaculty</servlet-name>
+    <servlet-class>controller.StudentViewsFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentViewsFaculty</servlet-name>
+    <url-pattern>/stud_view_fac</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StudentViewsLectureNotes</servlet-name>
+    <servlet-class>controller.Student_ViewsUploadedFiles</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentViewsLectureNotes</servlet-name>
+    <url-pattern>/notes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StudentDownloadsLectureNotes</servlet-name>
+    <servlet-class>controller.StudentFileDownload</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentDownloadsLectureNotes</servlet-name>
+    <url-pattern>/stud_download</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
