@@ -10,7 +10,7 @@ import model.UploadDetail;
 public class FacultyDAO 
 {
 	static Connection cn;
-	static PreparedStatement ps,ps2;
+	static PreparedStatement ps;
 	public static Faculty login(Faculty faculty)
 	{
 		String user_id=faculty.getUser_id();
@@ -104,7 +104,7 @@ public class FacultyDAO
 		List<Faculty> facultyList = null;
 		String name=faculty.getName();
 		String user_id=faculty.getUser_id();
-		System.out.println("Name="+name+" "+"User ID="+user_id);
+		//System.out.println("Name="+name+" "+"User ID="+user_id);
 		try
 		{
 			//Faculty remove_faculty;
@@ -152,6 +152,40 @@ public class FacultyDAO
 			ee.printStackTrace();
 		}
 		return faculty;
+	}
+	public static Faculty update(Faculty faculty)
+	{
+		String name=faculty.getName();
+		String user_id=faculty.getUser_id();
+		String phno=faculty.getPhno();
+		String eid=faculty.getEid();
+		String pass=faculty.getPassword();
+		try
+		{
+			cn=ConnectionManager.getConnection();
+			ps=cn.prepareStatement("update Faculty set phno=?,email_id=?,password=? where name=? and user_id=?");
+			ps.setString(1, phno);
+			ps.setString(2, eid);
+			ps.setString(3, pass);
+			ps.setString(4, name);
+			ps.setString(5, user_id);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next())
+			{
+				faculty.setValid(true);
+			}
+			else
+			{
+				faculty.setValid(false);
+			}
+		}
+		catch(Exception ee)
+		{
+			ee.printStackTrace();
+		}
+		return faculty;
+		
+		
 	}
 
 }

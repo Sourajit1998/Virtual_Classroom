@@ -109,8 +109,8 @@ function checkForm(form)
 
 <h2 align="center"><b>EDIT FACULTY</b></h2>
 <%Faculty editFaculty=(Faculty)request.getAttribute("facultyDetails");%>
-<tr><td>Name</td><td><input type="text" name="name" title="Name must not be blank and contain only letters." value="<%=editFaculty.getName() %>" id="button" placeholder="Enter the name"></td></tr>
-<tr><td>User-ID</td><td><input type="text" name="uid" title="User-ID must not be blank and contain only letters, numbers and underscores." value="<%=editFaculty.getUser_id() %>" id="button" placeholder="Enter the User-ID"></td></tr>
+<tr><td>Name</td><td><input type="text" name="name" class="field left" readonly="readonly" value="<%=editFaculty.getName() %>" id="button"></td></tr>
+<tr><td>User-ID</td><td><input type="text" name="uid" class="field left" readonly="readonly" value="<%=editFaculty.getUser_id() %>" id="button"></td></tr>
 <tr><td>Contact no.</td><td><input type="number" name="cno" title="Contact no. must be of 10 digits" value="<%=editFaculty.getPhno() %>" id="button" placeholder="Enter the contact no."></td></tr>
 <tr><td>Email id</td><td><input type="email" name="eid" title="Email id must be a valid one" id="button" value="<%=editFaculty.getEid() %>" placeholder="Enter the email-id"></td></tr>
 <tr><td>Password</td><td><input type="password" name="pass" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." value="<%=editFaculty.getPassword() %>" id="button" placeholder="Enter the password"></td></tr>

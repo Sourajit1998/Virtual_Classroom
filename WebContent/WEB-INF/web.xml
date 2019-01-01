@@ -115,5 +115,12 @@
     <servlet-name>EditFaculty</servlet-name>
     <url-pattern>/edit</url-pattern>
   </servlet-mapping>
-  
+   <servlet>
+    <servlet-name>UpdatedFaculty</servlet-name>
+    <servlet-class>controller.UpdateFaculty</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatedFaculty</servlet-name>
+    <url-pattern>/update_faculty</url-pattern>
+  </servlet-mapping>
 </web-app>
