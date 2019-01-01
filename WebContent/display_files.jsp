@@ -25,8 +25,8 @@
                   <tr>
                      <td align="center"><span id="fileName"><%=uploadDetails.get(i).getFileName() %></span></td>
                      <td align="center"><span id="fileSize"><%=uploadDetails.get(i).getFileSize() %> KB</span></td>
-                     <td align="center"><span id="fileDownload"><a id="downloadLink" class="hyperLink" href="download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span></td>
-           
+                     <td align="left"><span id="fileDownload"><a id="downloadLink" class="hyperLink" href="download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span></td>
+           			 <td align="right"><span id="fileDelete"><a id="deleteLink" class="hyperLink" href="delete?fileName=<%=uploadDetails.get(i).getFileName() %>">Delete</a></span></td>
                   </tr>
                   <% }
 
