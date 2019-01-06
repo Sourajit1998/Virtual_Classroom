@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"
     import="model.Faculty"%>
 <%@ page import="java.util.List" %>
+<%@ page import="model.Student" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+     <%Student currentUser=(Student)session.getAttribute("currentSessionUser");
+    if ( currentUser == null) 
+    {
+ 	   response.sendRedirect("Student_login.jsp?error=Login First");
+    }
+    else{%>
+    
      <div class="panel">
             <h1>Faculty List</h1>
             <table class="bordered_table">
@@ -44,6 +52,7 @@
             </table>
 
          </div>
+         <% } %>
    
 </body>
 </html>

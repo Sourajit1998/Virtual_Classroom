@@ -23,40 +23,48 @@ public class Student_ViewsUploadedFiles extends HttpServlet
 	private final String UPLOAD_DIRECTORY = "D:/uploads";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		HttpSession session=request.getSession(false);
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		String faculty_name=request.getParameter("facultyName");
-		try 
-		{
-			String upload_path=UPLOAD_DIRECTORY+File.separator +faculty_name;
-			File fileUploadDir=new File(upload_path);
-			if(!fileUploadDir.exists())
+		
+			if(session!=null)
 			{
-				fileUploadDir.mkdir();
+				try
+				{
+					String upload_path=UPLOAD_DIRECTORY+File.separator +faculty_name;
+					File fileUploadDir=new File(upload_path);
+					if(!fileUploadDir.exists())
+					{
+						fileUploadDir.mkdir();
+					}
+					UploadDetail details;
+					File allFiles[]=fileUploadDir.listFiles();
+			        List<UploadDetail> fileList = new ArrayList<UploadDetail>();
+			        for(File file:allFiles)
+			        {
+			        	details=new UploadDetail();
+			        	details.setFileName(file.getName());
+			        	details.setFileSize(file.length()/1024);
+			        	fileList.add(details);
+			        }
+			        request.setAttribute("uploadedFiles", fileList);
+			        request.setAttribute("facultyName", faculty_name);
+			        RequestDispatcher rd=request.getRequestDispatcher("Student_display_files.jsp");
+			        rd.include(request,response);
+				}
+				catch(Exception ee)
+				{
+					ee.printStackTrace();
+				}
 			}
-			UploadDetail details;
-			File allFiles[]=fileUploadDir.listFiles();
-	        List<UploadDetail> fileList = new ArrayList<UploadDetail>();
-	        for(File file:allFiles)
-	        {
-	        	details=new UploadDetail();
-	        	details.setFileName(file.getName());
-	        	details.setFileSize(file.length()/1024);
-	        	fileList.add(details);
-	        }
-	        request.setAttribute("uploadedFiles", fileList);
-	        request.setAttribute("facultyName", faculty_name);
-	        RequestDispatcher rd=request.getRequestDispatcher("Student_display_files.jsp");
-	        rd.include(request,response);
+			else
+			{
+				out.println("<html><body><font color='red' size='5'><center>");
+				out.println("<b>Please Login first !!</b>");
+				out.println("</center></font></body></html>");
+				RequestDispatcher rd=request.getRequestDispatcher("Student_login.jsp");
+				rd.include(request,response);
+			}
 		}
-		catch(Exception ee)
-		{
-			ee.printStackTrace();
-		}
-		
-		
-	}
-
 }
-
-	

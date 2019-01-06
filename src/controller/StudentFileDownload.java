@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,36 +20,53 @@ public class StudentFileDownload extends HttpServlet
 	private final String UPLOAD_DIRECTORY = "D:/uploads";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		HttpSession session=request.getSession(false);
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		String faculty_name=request.getParameter("facultyName");
 		String file_name=request.getParameter("fileName");
-		//System.out.println("file name="+file_name);
 		String download_path=UPLOAD_DIRECTORY+File.separator+faculty_name;
-		//System.out.println("download path="+download_path);
 		File file = new File(download_path+File.separator+file_name);
 	
-		if (file.exists()) 
-		{
-
-			response.setContentType("APPLICATION/OCTET-STREAM");   
-			response.setHeader("Content-Disposition","attachment; filename=\"" + file_name + "\"");   
-			  
-			FileInputStream fileInputStream = new FileInputStream(download_path +File.separator+ file_name);  
-			//System.out.println("file input stream="+fileInputStream);
-			            
-			int i;   
-			while ((i=fileInputStream.read()) != -1) 
-			{  
-				out.write(i);   
-			}   
-			fileInputStream.close();   
-			out.close();   
-		}  
-		else
-		{
-			out.println("<h3>File "+ file_name +" Is Not Present .....!</h3>");             //design to be done later
-		}
+			if(session!=null)
+			{
+				try
+				{
+					if (file.exists()) 
+					{
 			
-	}
+						response.setContentType("APPLICATION/OCTET-STREAM");   
+						response.setHeader("Content-Disposition","attachment; filename=\"" + file_name + "\"");   
+						  
+						FileInputStream fileInputStream = new FileInputStream(download_path +File.separator+ file_name);  
+						            
+						int i;   
+						while ((i=fileInputStream.read()) != -1) 
+						{  
+							out.write(i);   
+						}   
+						fileInputStream.close();   
+						out.close();   
+					}  
+					else
+					{
+						out.println("<h3>File "+ file_name +" Is Not Present .....!</h3>");             //design to be done later
+					}
+				}
+				catch(Exception ee)
+				{
+					ee.printStackTrace();
+				}
+			}
+			else
+			{
+				out.println("<html><body><font color='red' size='5'><center>");
+				out.println("<b>Please Login first !!</b>");
+				out.println("</center></font></body></html>");
+				RequestDispatcher rd=request.getRequestDispatcher("Student_login.jsp");
+				rd.include(request,response);
+			}
+			
+	    }
 }
+	

@@ -8,11 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%Student currentUser=(Student)session.getAttribute("currentSessionUser");%>
-	Welcome <%= currentUser.getName() %><br><br>
-	<a href="stud_pro">Profile</a><br><br>
-	<a href="stud_view_fac">Lecture Notes</a>
+ 
+    <%Student currentUser=(Student)session.getAttribute("currentSessionUser");
+    if ( currentUser == null) 
+    {
+ 	   response.sendRedirect("Student_login.jsp?error=Login First");
+    }
+    else{%>
 
+		Welcome <%= currentUser.getName() %><br><br>
+		<a href="stud_pro">Profile</a><br><br>
+		<a href="stud_view_fac">Lecture Notes</a><br><br>
+		<a href="stud_logout">Logout</a>
+      <% } %>
 
 </body>
 </html>

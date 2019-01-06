@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<script>
@@ -35,6 +37,12 @@
 	</head>
 	<body>
 		<center>
+		 <font color='red' size='5'>
+		    <% String error=request.getParameter("error");
+		          if(error!=null){%>
+		    	Error message :  <%= request.getParameter("error") %>!
+		    <%} %>	
+		    </font>
 			<font color="blue" size="3">
 			<h1><b>V-CLASSROOM</b></h1>
 			<p><marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">Welcome to Virtual Classroom </marquee></p>

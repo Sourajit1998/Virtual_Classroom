@@ -32,6 +32,7 @@ public class StudentLogin extends HttpServlet
 			if(student.isValid())
 			{
 				HttpSession session=request.getSession(true);
+				//System.out.println(session);
 				session.setAttribute("currentSessionUser", student);
 				response.sendRedirect("Student_logged.jsp");
 			}

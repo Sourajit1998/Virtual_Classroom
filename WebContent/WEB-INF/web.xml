@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <welcome-file-list>
-    <welcome-file>Student_login.html</welcome-file>
+    <welcome-file>Student_login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>StudentLogin</servlet-name>
@@ -155,5 +155,14 @@
     <servlet-name>StudentDownloadsLectureNotes</servlet-name>
     <url-pattern>/stud_download</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>StudentLogout</servlet-name>
+    <servlet-class>controller.StudentLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentLogout</servlet-name>
+    <url-pattern>/stud_logout</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
